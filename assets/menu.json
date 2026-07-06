@@ -1,0 +1,170 @@
+[
+  {
+    "name": "لاته وانیل",
+    "description": "اسپرسو ایتالیایی با شیر بخارداده و شربت وانیل ماداگاسکار",
+    "price": 165000,
+    "category": "نوشیدنی گرم",
+    "image": "hot-latte-vanilla.svg"
+  },
+  {
+    "name": "شیر کاکائوی داغ",
+    "description": "کاکائوی بلژیکی با شیر پرچرب و کرم شکلات",
+    "price": 120000,
+    "category": "نوشیدنی گرم",
+    "image": "hot-cocoa.svg"
+  },
+  {
+    "name": "چای ماسالا",
+    "description": "چای سیاه دم‌کشیده با هل، دارچین، زنجبیل و میخک",
+    "price": 95000,
+    "category": "نوشیدنی گرم",
+    "image": "hot-chai-masala.svg"
+  },
+  {
+    "name": "اسپرسو",
+    "description": "دو شات اسپرسوی خالص از دانه‌های تازه برشته‌شده",
+    "price": 85000,
+    "category": "قهوه",
+    "image": "coffee-espresso.svg"
+  },
+  {
+    "name": "کاپوچینو",
+    "description": "اسپرسو با فوم شیر ابریشمی و پودر دارچین",
+    "price": 140000,
+    "category": "قهوه",
+    "image": "coffee-cappuccino.svg"
+  },
+  {
+    "name": "آمریکانو",
+    "description": "اسپرسوی رقیق‌شده با آب داغ، طعمی ملایم و عمیق",
+    "price": 110000,
+    "category": "قهوه",
+    "image": "coffee-americano.svg"
+  },
+  {
+    "name": "فلت وایت",
+    "description": "اسپرسوی دوبل با لایه نازک شیر مخملی",
+    "price": 150000,
+    "category": "قهوه",
+    "image": "coffee-flatwhite.svg"
+  },
+  {
+    "name": "آیس لاته",
+    "description": "اسپرسو سرد شده با شیر یخ و شربت کارامل",
+    "price": 175000,
+    "category": "نوشیدنی سرد",
+    "image": "cold-iced-latte.svg"
+  },
+  {
+    "name": "لیموناد نعنا",
+    "description": "آبلیمو تازه با برگ نعنا و سودای گازدار",
+    "price": 130000,
+    "category": "نوشیدنی سرد",
+    "image": "cold-lemonade-mint.svg"
+  },
+  {
+    "name": "اسموتی توت‌فرنگی",
+    "description": "توت‌فرنگی تازه، ماست یونانی و عسل طبیعی",
+    "price": 165000,
+    "category": "نوشیدنی سرد",
+    "image": "cold-smoothie-strawberry.svg"
+  },
+  {
+    "name": "دمنوش بابونه",
+    "description": "گل بابونه خشک، آرامش‌بخش و مناسب پایان روز",
+    "price": 90000,
+    "category": "دمنوش",
+    "image": "herbal-chamomile.svg"
+  },
+  {
+    "name": "دمنوش هل و دارچین",
+    "description": "ترکیبی گرم از هل سبز و دارچین سیلان",
+    "price": 95000,
+    "category": "دمنوش",
+    "image": "herbal-cardamom-cinnamon.svg"
+  },
+  {
+    "name": "دمنوش گل گاوزبان",
+    "description": "گل گاوزبان خالص با عطر ملایم و طبیعی",
+    "price": 90000,
+    "category": "دمنوش",
+    "image": "herbal-borage.svg"
+  },
+  {
+    "name": "کیک شکلاتی",
+    "description": "کیک اسفنجی شکلاتی با گاناش تلخ و پودر کاکائو",
+    "price": 175000,
+    "category": "کیک",
+    "image": "cake-chocolate.svg"
+  },
+  {
+    "name": "کیک هویج",
+    "description": "کیک هویج خانگی با گردو و فراستینگ پنیر خامه‌ای",
+    "price": 165000,
+    "category": "کیک",
+    "image": "cake-carrot.svg"
+  },
+  {
+    "name": "رد ولوت",
+    "description": "کیک مخملی قرمز با لایه‌های کرم پنیری",
+    "price": 185000,
+    "category": "کیک",
+    "image": "cake-redvelvet.svg"
+  },
+  {
+    "name": "تیرامیسو",
+    "description": "دسر ایتالیایی با مالارپونه، قهوه و پودر کاکائو",
+    "price": 195000,
+    "category": "دسر",
+    "image": "dessert-tiramisu.svg"
+  },
+  {
+    "name": "پاناکوتا",
+    "description": "دسر خامه‌ای ایتالیایی با سس توت‌های قرمز",
+    "price": 155000,
+    "category": "دسر",
+    "image": "dessert-panacotta.svg"
+  },
+  {
+    "name": "موس شکلات",
+    "description": "موس شکلات تلخ بلژیکی با بافتی سبک و ابری",
+    "price": 170000,
+    "category": "دسر",
+    "image": "dessert-chocolate-mousse.svg"
+  },
+  {
+    "name": "تخم‌مرغ و نان تست",
+    "description": "تخم‌مرغ عسلی با نان تست کره‌ای و سبزیجات تازه",
+    "price": 145000,
+    "category": "صبحانه",
+    "image": "breakfast-eggs-toast.svg"
+  },
+  {
+    "name": "نان و پنیر و گردو",
+    "description": "نان بربری تازه با پنیر لیقوان و مغز گردو",
+    "price": 135000,
+    "category": "صبحانه",
+    "image": "breakfast-bread-cheese-walnut.svg"
+  },
+  {
+    "name": "پنکیک عسل",
+    "description": "پنکیک‌های نرم با عسل طبیعی و کره",
+    "price": 160000,
+    "category": "صبحانه",
+    "image": "breakfast-pancake-honey.svg"
+  },
+  {
+    "name": "ساندویچ مرغ",
+    "description": "مرغ گریل‌شده با سس مخصوص و سبزیجات در نان چاباتا",
+    "price": 185000,
+    "category": "میان‌وعده",
+    "image": "snack-chicken-sandwich.svg"
+  },
+  {
+    "name": "کوکی شکلاتی",
+    "description": "کوکی خانگی با تکه‌های شکلات تلخ و مغز گردو",
+    "price": 75000,
+    "category": "میان‌وعده",
+    "image": "snack-cookie-chocolate.svg"
+  }
+]
