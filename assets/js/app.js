@@ -28,6 +28,54 @@
   };
 
   /* ------------------------------------------------------------
+   * Category icons
+   * A single consistent stroke-icon set (same visual language as the
+   * rest of the interface — 24x24, currentColor, rounded strokes).
+   * Icons are assigned automatically from keywords found in the
+   * category name; unknown categories fall back to a default glyph.
+   * ---------------------------------------------------------- */
+  const CATEGORY_ICON_DEFS = [
+    { keywords: ["قهوه", "اسپرسو", "لاته", "کاپوچینو"], icon: "coffee" },
+    { keywords: ["سرد", "یخ", "اسموتی"], icon: "cold" },
+    { keywords: ["گرم"], icon: "hot" },
+    { keywords: ["دمنوش", "چای", "بابونه"], icon: "herbal" },
+    { keywords: ["کیک"], icon: "cake" },
+    { keywords: ["دسر", "بستنی", "موس"], icon: "dessert" },
+    { keywords: ["صبحانه", "تخم", "پنکیک"], icon: "breakfast" },
+    { keywords: ["میان‌وعده", "میان وعده", "ساندویچ", "اسنک"], icon: "snack" },
+  ];
+
+  const ICON_PATHS = {
+    all: '<rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/>',
+    coffee: '<path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9.5h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 4.2c-1 1-1 1.6 0 2.6M11.5 4.2c-1 1-1 1.6 0 2.6"/>',
+    hot: '<path d="M4.5 10h11v4a4 4 0 0 1-4 4h-3a4 4 0 0 1-4-4v-4Z"/><path d="M15.5 11h1.7a2 2 0 0 1 0 4h-1"/><path d="M2.5 20.5h15"/><path d="M8 5.2c-1 1 .9 1.8 0 2.8M11.5 5.2c-1 1 .9 1.8 0 2.8"/>',
+    cold: '<path d="M7 8h10l-1 11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2L7 8Z"/><path d="M9 8l6-4"/><line x1="8" y1="12.2" x2="16" y2="12.2"/>',
+    herbal: '<path d="M12 21c-4-1-8-5-8-11 3 0 6 1 8 3 2-2 5-3 8-3 0 6-4 10-8 11Z"/><path d="M12 21V9"/>',
+    cake: '<path d="M4 20 12 6l8 14Z"/><path d="M7.2 14h9.6"/><circle cx="12" cy="4" r="1.3"/>',
+    dessert: '<path d="M5 11a7 7 0 0 1 14 0Z"/><path d="M4.5 11h15"/><path d="M12 18v3"/><circle cx="9" cy="9" r="0.9"/><circle cx="15" cy="9" r="0.9"/>',
+    breakfast: '<circle cx="12" cy="9" r="3.2"/><path d="M12 3.2v1.4M12 12.6V14M6 9H4.6M19.4 9H18M7.5 4.5l1 1M15.5 4.5l-1 1"/><path d="M3.5 18h17"/>',
+    snack: '<path d="M3 10h18l-1.2 3H4.2L3 10Z"/><path d="M4 13h16v2a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-2Z"/><path d="M3 10 12 4l9 6"/>',
+    default: '<path d="M6 3v6.5a2 2 0 0 0 4 0V3"/><path d="M8 9.5V21"/><path d="M17 3c-1.7 0-3 2-3 5.5S15.3 14 17 14"/><path d="M17 3v18"/>',
+  };
+
+  /** Resolve a category name to one of the icon keys above. */
+  function resolveCategoryIcon(categoryName) {
+    const normalized = normalize(categoryName);
+    for (const def of CATEGORY_ICON_DEFS) {
+      if (def.keywords.some((kw) => normalized.includes(normalize(kw)))) {
+        return def.icon;
+      }
+    }
+    return "default";
+  }
+
+  /** Build an inline <svg> markup string for a given icon key. */
+  function iconSvg(key) {
+    const path = ICON_PATHS[key] || ICON_PATHS.default;
+    return `<svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
+  }
+
+  /* ------------------------------------------------------------
    * DOM references
    * ---------------------------------------------------------- */
   const dom = {
@@ -100,9 +148,19 @@
    * Data loading
    * ---------------------------------------------------------- */
 
+  // Guards against a race condition where an older, slower request
+  // (e.g. from a previous "retry" click) resolves after a newer one and
+  // overwrites its result — only the most recent call is allowed to
+  // update the UI.
+  let requestToken = 0;
+
   async function loadMenu() {
+    const thisRequest = ++requestToken;
     setStatus("loading");
+
+    let items;
     try {
+      // --- Fetch + parse: the only phase that may produce the error state ---
       const res = await fetch(CONFIG.dataUrl, { cache: "no-store" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
@@ -110,22 +168,38 @@
       if (!Array.isArray(raw)) throw new Error("فرمت داده نامعتبر است");
       if (raw.length === 0) throw new Error("EMPTY");
 
-      state.items = raw
+      items = raw
         .filter((item) => item && typeof item === "object")
         .map(normalizeItem)
         .filter(Boolean);
 
-      if (state.items.length === 0) throw new Error("EMPTY");
-
-      state.categories = buildCategoryList(state.items);
-      setStatus("ready");
-      renderChips();
-      renderGrid();
+      if (items.length === 0) throw new Error("EMPTY");
     } catch (err) {
+      if (thisRequest !== requestToken) return; // a newer request has since started
       console.error("[Bobcafe] Failed to load menu:", err);
       setStatus("error", err && err.message === "EMPTY"
         ? "در حال حاضر موردی در منو ثبت نشده است."
         : "مشکلی در بارگذاری منو پیش آمد. لطفاً اتصال اینترنت را بررسی کرده و دوباره تلاش کنید.");
+      return;
+    }
+
+    if (thisRequest !== requestToken) return; // a newer request has since started
+
+    // --- Data loaded successfully: the load is done, full stop. ---
+    // Anything below is presentation only. A problem here must never
+    // be able to flip a genuinely successful load back to the error
+    // state — that mismatch (data loaded, error banner shown) was the
+    // exact bug being fixed, so rendering failures are handled on
+    // their own instead of falling into the fetch/parse catch above.
+    state.items = items;
+    state.categories = buildCategoryList(state.items);
+    setStatus("ready");
+
+    try {
+      renderChips();
+      renderGrid();
+    } catch (renderErr) {
+      console.error("[Bobcafe] Menu loaded but failed to render:", renderErr);
     }
   }
 
@@ -205,7 +279,8 @@
     chip.setAttribute("role", "tab");
     chip.dataset.value = value;
     chip.setAttribute("aria-selected", String(value === state.activeCategory));
-    chip.innerHTML = `<span>${escapeHtml(label)}</span><span class="chip__count">${toPersianDigitsOnly(count)}</span>`;
+    const iconKey = value === "all" ? "all" : resolveCategoryIcon(label);
+    chip.innerHTML = `<span class="chip__icon">${iconSvg(iconKey)}</span><span>${escapeHtml(label)}</span><span class="chip__count">${toPersianDigitsOnly(count)}</span>`;
     return chip;
   }
 

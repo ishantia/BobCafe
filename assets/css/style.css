@@ -1,25 +1,27 @@
 /* ==========================================================================
    BOBCAFE — Design tokens
-   Palette: roasted espresso, warm cream, toasted beige, caramel & honey
+   Palette: sage/olive green primary (#55704A) on a warm peach-cream
+   background (#FFF0E0) — every accent, border and hover state derives
+   from these two brand colors.
    Type: Vazirmatn (display + body, weight contrast carries hierarchy)
    ========================================================================== */
 
 :root {
   /* --- color: light mode --- */
-  --bg: #FAF3EA;
-  --bg-elevated: #FFFFFF;
-  --surface: #F1E6D5;
-  --surface-hover: #EADCC6;
-  --border: rgba(43, 27, 18, 0.10);
-  --text: #2B1B12;
-  --text-secondary: #6E5B4B;
-  --text-muted: #9C8975;
-  --accent: #A8672F;
-  --accent-2: #C98A3F;
-  --accent-soft: rgba(168, 103, 47, 0.12);
-  --gold: #D4A24C;
-  --shadow-color: 30, 20, 10;
-  --overlay: rgba(43, 27, 18, 0.55);
+  --bg: #FFF0E0;
+  --bg-elevated: #FFFBF5;
+  --surface: #FCE2C4;
+  --surface-hover: #F8D3AC;
+  --border: rgba(85, 112, 74, 0.18);
+  --text: #2B2A1F;
+  --text-secondary: #5B6B50;
+  --text-muted: #8C9280;
+  --accent: #55704A;
+  --accent-2: #6F8B60;
+  --accent-soft: rgba(85, 112, 74, 0.14);
+  --gold: #55704A;
+  --shadow-color: 40, 40, 20;
+  --overlay: rgba(43, 42, 31, 0.55);
 
   /* --- type --- */
   --font-display: "Vazirmatn", "Estedad", sans-serif;
@@ -40,38 +42,38 @@
 }
 
 [data-theme="dark"] {
-  --bg: #19110B;
-  --bg-elevated: #221811;
-  --surface: #2A1E15;
-  --surface-hover: #33251A;
-  --border: rgba(250, 243, 234, 0.09);
-  --text: #F7EEE1;
-  --text-secondary: #C6B39F;
-  --text-muted: #8B7A68;
-  --accent: #E0A85B;
-  --accent-2: #D4A24C;
-  --accent-soft: rgba(224, 168, 91, 0.16);
-  --gold: #E0A85B;
+  --bg: #171A13;
+  --bg-elevated: #1F2318;
+  --surface: #262B1D;
+  --surface-hover: #2E3423;
+  --border: rgba(255, 240, 224, 0.09);
+  --text: #FFF0E0;
+  --text-secondary: #C8CBB8;
+  --text-muted: #8D9080;
+  --accent: #86AB74;
+  --accent-2: #9BBD8B;
+  --accent-soft: rgba(134, 171, 116, 0.18);
+  --gold: #86AB74;
   --shadow-color: 0, 0, 0;
-  --overlay: rgba(10, 6, 3, 0.65);
+  --overlay: rgba(8, 10, 6, 0.65);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #19110B;
-    --bg-elevated: #221811;
-    --surface: #2A1E15;
-    --surface-hover: #33251A;
-    --border: rgba(250, 243, 234, 0.09);
-    --text: #F7EEE1;
-    --text-secondary: #C6B39F;
-    --text-muted: #8B7A68;
-    --accent: #E0A85B;
-    --accent-2: #D4A24C;
-    --accent-soft: rgba(224, 168, 91, 0.16);
-    --gold: #E0A85B;
+    --bg: #171A13;
+    --bg-elevated: #1F2318;
+    --surface: #262B1D;
+    --surface-hover: #2E3423;
+    --border: rgba(255, 240, 224, 0.09);
+    --text: #FFF0E0;
+    --text-secondary: #C8CBB8;
+    --text-muted: #8D9080;
+    --accent: #86AB74;
+    --accent-2: #9BBD8B;
+    --accent-soft: rgba(134, 171, 116, 0.18);
+    --gold: #86AB74;
     --shadow-color: 0, 0, 0;
-    --overlay: rgba(10, 6, 3, 0.65);
+    --overlay: rgba(8, 10, 6, 0.65);
   }
 }
 
@@ -80,6 +82,11 @@
    ========================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; }
+
+/* The [hidden] attribute must always win over component display rules
+   (e.g. .state-panel { display: flex }) — otherwise a later, equally
+   specific author rule can keep a "hidden" element visually visible. */
+[hidden] { display: none !important; }
 
 html {
   scroll-behavior: smooth;
@@ -99,6 +106,13 @@ body {
 }
 
 img { max-width: 100%; display: block; }
+
+a {
+  color: var(--accent);
+  text-decoration-color: var(--accent-soft);
+  text-underline-offset: 2px;
+}
+a:hover { color: var(--accent-2); }
 button { font-family: inherit; }
 ul, ol { margin: 0; padding: 0; }
 h1, h2, h3, p { margin: 0; }
@@ -362,7 +376,7 @@ h1, h2, h3, p { margin: 0; }
   transition: background var(--fast) var(--ease), color var(--fast) var(--ease),
               border-color var(--fast) var(--ease), transform var(--fast) var(--ease);
 }
-.chip:hover { transform: translateY(-1px); border-color: var(--accent); }
+.chip:hover { transform: translateY(-1px); border-color: var(--accent); color: var(--accent); }
 .chip:active { transform: translateY(0) scale(0.97); }
 
 .chip[aria-selected="true"] {
@@ -371,6 +385,17 @@ h1, h2, h3, p { margin: 0; }
   color: #fff;
   box-shadow: 0 6px 16px -6px var(--accent-soft);
 }
+
+.chip__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+  transition: color var(--fast) var(--ease);
+}
+.chip__icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; }
+.chip[aria-selected="true"] .chip__icon { color: #fff; }
 
 .chip__count {
   font-size: 11px;
@@ -460,7 +485,7 @@ h1, h2, h3, p { margin: 0; }
 
 .card__media {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--surface);
 }
@@ -488,10 +513,10 @@ h1, h2, h3, p { margin: 0; }
 }
 
 .card__body {
-  padding: 16px 16px 18px;
+  padding: 18px 18px 20px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
   flex: 1;
 }
 
@@ -508,7 +533,7 @@ h1, h2, h3, p { margin: 0; }
   line-height: 1.55;
   flex: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -576,7 +601,7 @@ mark {
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
 }
-.skel-media { aspect-ratio: 4/3; }
+.skel-media { aspect-ratio: 16/9; }
 .skel-body { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
 .skel-line { height: 12px; border-radius: 6px; }
 .skel-line.w60 { width: 60%; }
@@ -742,5 +767,5 @@ mark {
 
 @media (max-width: 380px) {
   .hero__title { font-size: 2.3rem; }
-  .card__desc { -webkit-line-clamp: 2; }
+  .card__desc { -webkit-line-clamp: 3; }
 }
