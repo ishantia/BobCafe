@@ -69,7 +69,7 @@ No changes to the HTML or JavaScript are required.
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/bobcafe-online-menu.git
+git clone https://github.com/ishantia/BobCafe
 ```
 
 Open `index.html` in your browser, or serve the project with a local web server.
