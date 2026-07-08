@@ -17,7 +17,28 @@
     fallbackImage: "assets/images/fallback.svg",
     allChipLabel: "همه",
     searchDebounceMs: 220,
+    // Master display order for known categories. Categories not found
+    // here (e.g. a brand-new one added only in menu.json) are appended
+    // after these, in the order they first appear in the data.
+    categoryOrder: [
+      "اسپرسو بار",
+      "شیرقهوه با نسبت شیر کم",
+      "شیرقهوه با نسبت شیر متوسط",
+      "شیرقهوه با نسبت شیر زیاد",
+      "قهوه های دمی",
+      "نوشیدنی های گرم",
+      "ماچا بار",
+      "تی بار",
+      "ایس کافی بار",
+      "کلاسیک ماکتیل",
+      "ماکتیل",
+      "شیک",
+      "اسموتی",
+      "کیک",
+    ],
   };
+
+  const THEME_STORAGE_KEY = "bobcafe:theme";
 
   const state = {
     items: [],
@@ -35,26 +56,32 @@
    * category name; unknown categories fall back to a default glyph.
    * ---------------------------------------------------------- */
   const CATEGORY_ICON_DEFS = [
-    { keywords: ["قهوه", "اسپرسو", "لاته", "کاپوچینو"], icon: "coffee" },
-    { keywords: ["سرد", "یخ", "اسموتی"], icon: "cold" },
-    { keywords: ["گرم"], icon: "hot" },
-    { keywords: ["دمنوش", "چای", "بابونه"], icon: "herbal" },
+    { keywords: ["اسپرسو"], icon: "coffee" },
+    { keywords: ["شیرقهوه"], icon: "latte" },
+    { keywords: ["دمی"], icon: "pourover" },
+    { keywords: ["نوشیدنی های گرم", "گرم"], icon: "hot" },
+    { keywords: ["ماچا"], icon: "matcha" },
+    { keywords: ["تی بار"], icon: "tea" },
+    { keywords: ["ایس کافی", "ایس"], icon: "cold" },
+    { keywords: ["ماکتیل"], icon: "mocktail" },
+    { keywords: ["شیک"], icon: "shake" },
+    { keywords: ["اسموتی"], icon: "smoothie" },
     { keywords: ["کیک"], icon: "cake" },
-    { keywords: ["دسر", "بستنی", "موس"], icon: "dessert" },
-    { keywords: ["صبحانه", "تخم", "پنکیک"], icon: "breakfast" },
-    { keywords: ["میان‌وعده", "میان وعده", "ساندویچ", "اسنک"], icon: "snack" },
   ];
 
   const ICON_PATHS = {
     all: '<rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/>',
     coffee: '<path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9.5h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 4.2c-1 1-1 1.6 0 2.6M11.5 4.2c-1 1-1 1.6 0 2.6"/>',
+    latte: '<path d="M5 9h11v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M16 10h1.6a2.2 2.2 0 0 1 0 4.4H16"/><path d="M10.5 11.4c-1.3-1.3-3.1.4-1.6 1.9.8.8 1.6 1.5 1.6 1.5s.8-.7 1.6-1.5c1.5-1.5-.3-3.2-1.6-1.9Z"/>',
+    pourover: '<path d="M6.5 4h11l-2 6h-7l-2-6Z"/><path d="M9 10v2.6a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V10"/><path d="M4.5 19.6h15"/><path d="M12 15.6v4"/>',
     hot: '<path d="M4.5 10h11v4a4 4 0 0 1-4 4h-3a4 4 0 0 1-4-4v-4Z"/><path d="M15.5 11h1.7a2 2 0 0 1 0 4h-1"/><path d="M2.5 20.5h15"/><path d="M8 5.2c-1 1 .9 1.8 0 2.8M11.5 5.2c-1 1 .9 1.8 0 2.8"/>',
+    matcha: '<path d="M5 10a7 7 0 0 0 14 0Z"/><path d="M4.5 10h15"/><path d="M12 3v3.4"/><path d="M9.4 4.4l1 1.8M14.6 4.4l-1 1.8"/>',
+    tea: '<path d="M4 14a8 5.2 0 0 0 16 0Z"/><path d="M4 14h16"/><path d="M17 12c3.7-.8 4.1 4.2.4 4.5"/><path d="M7.4 9c-2-2.8 2-2.8 0-6"/><circle cx="12" cy="7.6" r="1"/>',
     cold: '<path d="M7 8h10l-1 11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2L7 8Z"/><path d="M9 8l6-4"/><line x1="8" y1="12.2" x2="16" y2="12.2"/>',
-    herbal: '<path d="M12 21c-4-1-8-5-8-11 3 0 6 1 8 3 2-2 5-3 8-3 0 6-4 10-8 11Z"/><path d="M12 21V9"/>',
+    mocktail: '<path d="M5 4h14l-7 8v6"/><path d="M9 20h6"/><path d="M6.7 4.4 12 9"/><circle cx="15.5" cy="6" r="1"/>',
+    shake: '<path d="M8 5h8l-1.2 14a2 2 0 0 1-2 1.8h-1.6a2 2 0 0 1-2-1.8L8 5Z"/><path d="M8 9h8"/><path d="M13 2v4"/><circle cx="13" cy="1.6" r="1"/>',
+    smoothie: '<path d="M7.5 8h9l-1.2 11a2 2 0 0 1-2 1.8h-2.6a2 2 0 0 1-2-1.8L7.5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M9.4 12h5.2"/>',
     cake: '<path d="M4 20 12 6l8 14Z"/><path d="M7.2 14h9.6"/><circle cx="12" cy="4" r="1.3"/>',
-    dessert: '<path d="M5 11a7 7 0 0 1 14 0Z"/><path d="M4.5 11h15"/><path d="M12 18v3"/><circle cx="9" cy="9" r="0.9"/><circle cx="15" cy="9" r="0.9"/>',
-    breakfast: '<circle cx="12" cy="9" r="3.2"/><path d="M12 3.2v1.4M12 12.6V14M6 9H4.6M19.4 9H18M7.5 4.5l1 1M15.5 4.5l-1 1"/><path d="M3.5 18h17"/>',
-    snack: '<path d="M3 10h18l-1.2 3H4.2L3 10Z"/><path d="M4 13h16v2a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-2Z"/><path d="M3 10 12 4l9 6"/>',
     default: '<path d="M6 3v6.5a2 2 0 0 0 4 0V3"/><path d="M8 9.5V21"/><path d="M17 3c-1.7 0-3 2-3 5.5S15.3 14 17 14"/><path d="M17 3v18"/>',
   };
 
@@ -214,12 +241,24 @@
     return { name, description, category, price, image };
   }
 
+  /** Sort category names by their position in CONFIG.categoryOrder.
+   *  Unknown categories keep their relative (first-seen) order and are
+   *  placed after every known category. */
+  function sortByCategoryOrder(names) {
+    const rank = (name) => {
+      const idx = CONFIG.categoryOrder.indexOf(name);
+      return idx === -1 ? CONFIG.categoryOrder.length + names.indexOf(name) : idx;
+    };
+    return [...names].sort((a, b) => rank(a) - rank(b));
+  }
+
   function buildCategoryList(items) {
     const counts = new Map();
     for (const item of items) {
       counts.set(item.category, (counts.get(item.category) || 0) + 1);
     }
-    return Array.from(counts.entries()).map(([name, count]) => ({ name, count }));
+    const orderedNames = sortByCategoryOrder([...counts.keys()]);
+    return orderedNames.map((name) => ({ name, count: counts.get(name) }));
   }
 
   function setStatus(status, message) {
@@ -348,7 +387,8 @@
       if (!map.has(item.category)) map.set(item.category, []);
       map.get(item.category).push(item);
     }
-    return map;
+    const orderedNames = sortByCategoryOrder([...map.keys()]);
+    return orderedNames.map((name) => [name, map.get(name)]);
   }
 
   function createCard(item, searchTerm, index) {
@@ -470,16 +510,24 @@
   }
 
   function initTheme() {
-    // Session-only override on top of the OS-level prefers-color-scheme.
-    // No storage is used, so the app always launches following the OS setting.
-    let manualTheme = null;
+    // The inline boot script in <head> already applied the correct
+    // theme before first paint (saved preference, or Light Mode by
+    // default). This just keeps the toggle button in sync and saves
+    // any manual change so it persists across future visits.
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    dom.themeToggle.setAttribute("aria-pressed", String(isDark));
 
     dom.themeToggle.addEventListener("click", () => {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const currentlyDark = manualTheme ? manualTheme === "dark" : prefersDark;
-      manualTheme = currentlyDark ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", manualTheme);
-      dom.themeToggle.setAttribute("aria-pressed", String(manualTheme === "dark"));
+      const currentlyDark = document.documentElement.getAttribute("data-theme") === "dark";
+      const next = currentlyDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      dom.themeToggle.setAttribute("aria-pressed", String(next === "dark"));
+      try {
+        localStorage.setItem(THEME_STORAGE_KEY, next);
+      } catch (e) {
+        // Storage unavailable (private browsing, quota, etc.) — the
+        // toggle still works for the current session, it just won't persist.
+      }
     });
   }
 

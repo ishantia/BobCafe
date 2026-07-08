@@ -7,11 +7,28 @@
   <meta name="description" content="منوی آنلاین باب‌کافه — قهوه، نوشیدنی، کیک و دسرهای دست‌ساز">
   <meta name="theme-color" content="#55704A">
 
+  <!--
+    Applies the theme before first paint so there is no flash of the
+    wrong theme. Deliberately does NOT read prefers-color-scheme —
+    Light Mode is always the default unless the user previously chose
+    Dark Mode via the toggle (saved in localStorage).
+  -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("bobcafe:theme");
+        document.documentElement.setAttribute("data-theme", saved === "dark" ? "dark" : "light");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/images/logo.jpg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -28,9 +45,9 @@
     </div>
 
     <div class="hero__content">
-      <img class="hero__logo" src="assets/images/logo.svg" alt="نشان باب‌کافه" width="88" height="88">
+      <img class="hero__logo" src="assets/images/logo.jpg" alt="نشان باب‌کافه" width="88" height="88">
       <p class="hero__eyebrow">خوش آمدید به</p>
-      <h1 class="hero__title">باب<span class="hero__title-accent">کافه</span></h1>
+      <h1 class="hero__title">باب <span class="hero__title-accent">کافه</span></h1>
       <p class="hero__subtitle">جایی برای مکث؛ یک فنجان قهوه، یک لحظه آرام</p>
     </div>
 
@@ -98,10 +115,10 @@
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="footer__brand">
-      <img src="assets/images/logo.svg" alt="" width="40" height="40" aria-hidden="true">
+      <img src="assets/images/logo.jpg" alt="" width="40" height="40" aria-hidden="true">
       <span>باب‌کافه</span>
     </div>
-    <p class="footer__text">هر روز، از ساعت ۸ صبح تا ۱۱ شب پذیرای شما هستیم</p>
+    <p class="footer__text">هر روز، از ساعت 7 صبح تا ۱۱ شب پذیرای شما هستیم</p>
     <p class="footer__copy">© <span id="footerYear"></span> باب‌کافه — تمام حقوق محفوظ است</p>
   </footer>
 

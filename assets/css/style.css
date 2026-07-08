@@ -58,24 +58,10 @@
   --overlay: rgba(8, 10, 6, 0.65);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #171A13;
-    --bg-elevated: #1F2318;
-    --surface: #262B1D;
-    --surface-hover: #2E3423;
-    --border: rgba(255, 240, 224, 0.09);
-    --text: #FFF0E0;
-    --text-secondary: #C8CBB8;
-    --text-muted: #8D9080;
-    --accent: #86AB74;
-    --accent-2: #9BBD8B;
-    --accent-soft: rgba(134, 171, 116, 0.18);
-    --gold: #86AB74;
-    --shadow-color: 0, 0, 0;
-    --overlay: rgba(8, 10, 6, 0.65);
-  }
-}
+/* Dark mode is opt-in only (manual toggle + saved preference).
+   It is applied purely via the [data-theme="dark"] attribute above —
+   the site intentionally does not follow prefers-color-scheme, so a
+   first-time visitor always sees Light Mode regardless of OS setting. */
 
 /* ==========================================================================
    Reset & base
