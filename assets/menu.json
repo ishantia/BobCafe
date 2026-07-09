@@ -333,125 +333,125 @@
     "description": "بستنی وانیلی، شیر، نوتلا و توت‌فرنگی تازه",
     "price": 330000,
     "category": "شیک",
-    "image": "shake-starwberry-nutella.jpg"
+    "image": "shake-starwberry-nutella.webp"
   },
   {
     "name": "شیک توت‌فرنگی",
     "description": "بستنی وانیلی، شیر و توت‌فرنگی تازه",
     "price": 310000,
     "category": "شیک",
-    "image": "shake-strawberry.jpg"
+    "image": "shake-strawberry.webp"
   },
   {
     "name": "شیک پینات",
     "description": "بستنی وانیلی، شیر و کره بادام زمینی",
     "price": 310000,
     "category": "شیک",
-    "image": "shake-peanut-butter.jpg"
+    "image": "shake-peanut-butter.webp"
   },
   {
     "name": "شیک اسپرسو",
     "description": "بستنی وانیلی، شیر و اسپرسو",
     "price": 330000,
     "category": "شیک",
-    "image": "shake-espresso.jpg"
+    "image": "shake-espresso.webp"
   },
   {
     "name": "شیک اورئو",
     "description": "بستنی وانیلی، شیر و بیسکویت اورئو",
     "price": 330000,
     "category": "شیک",
-    "image": "shake-oreo.jpg"
+    "image": "shake-oreo.webp"
   },
   {
     "name": "شیک لوتوس",
     "description": "بستنی وانیلی، شیر و کره لوتوس ",
     "price": 330000,
     "category": "شیک",
-    "image": "shake-letus.jpg"
+    "image": "shake-letus.webp"
   },
   {
     "name": "اسموتی سانست",
     "description": "ترکیب توت فرنگی تازه، پشن فروت و مرکبات",
     "price": 278000,
     "category": "اسموتی",
-    "image": "smoothie-sunset.jpg"
+    "image": "smoothie-sunset.webp"
   },
   {
     "name": "اسموتی تروپیکال",
     "description": "ترکیب اناناس، نارگیل و میوه های استوایی",
     "price": 288000,
     "category": "اسموتی",
-    "image": "smoothie-tropical.jpg"
+    "image": "smoothie-tropical.webp"
   },
   {
     "name": "اسموتی رد دنس",
     "description": "ترکیب شاه توت، آلبالو و تمشک",
     "price": 270000,
     "category": "اسموتی",
-    "image": "smoothie-red-dance.jpg"
+    "image": "smoothie-red-dance.webp"
   },
   {
     "name": "اسموتی فصل",
     "description": "ترکیب هندوانه، توت فرنگی، طالبی و نعناع",
     "price": 250000,
     "category": "اسموتی",
-    "image": "smoothie-season.jpg"
+    "image": "smoothie-season.webp"
   },
   {
     "name": "کیک چاکلت براونی",
     "description": "کیک براونی داغ و یک اسکوپ بستنی",
     "price": 298000,
     "category": "کیک",
-    "image": "cake-chocolate-brownie.jpg"
+    "image": "cake-chocolate-brownie.webp"
   },
   {
     "name": "کیک عسل",
     "description": "کیک لایه ای با طعم شیرین عسل",
     "price": 290000,
     "category": "کیک",
-    "image": "cake-honey.jpg"
+    "image": "cake-honey.webp"
   },
   {
     "name": "چیزکیک نیویورکی",
     "description": "چیزکیک کلاسیک با پایه بیسکوییتی",
     "price": 268000,
     "category": "کیک",
-    "image": "chese-cake-newyork.jpg"
+    "image": "chese-cake-newyork.webp"
   },
   {
     "name": "کوکی کره شکلات",
     "description": "کوکی کره ای با تکه های شکلات و گردو",
     "price": 180000,
     "category": "کیک",
-    "image": "cookie-chocolate-butter.jpg"
+    "image": "cookie-chocolate-butter.webp"
   },
   {
     "name": "کوکی شکلات مارس",
     "description": "کوکی شکلاتی با تکه های شکلات و کارامل",
     "price": 180000,
     "category": "کیک",
-    "image": "cookie-chocolate-mars.jpg"
+    "image": "cookie-chocolate-mars.webp"
   },
   {
     "name": "فرنچ فرایز",
     "description": "سیب زمینی سرخ شده با نمک و ادویه",
     "price": 330000,
     "category": "غذا",
-    "image": "french-fries.jpg"
+    "image": "french-fries.webp"
   },
     {
     "name": "کلاسیک برگر",
     "description": "برگر کلاسیک به همراه فرنچ فرایز",
     "price": 690000,
     "category": "غذا",
-    "image": "classic-burger.jpg"
+    "image": "classic-burger.webp"
   },
     {
     "name": "پاستا آلفردو",
     "description": "پاستا با سس آلفردو و مرغ گریل شده",
     "price": 710000,
     "category": "غذا",
-    "image": "pasta-alfredo.jpg"
+    "image": "pasta-alfredo.webp"
   }
 ]
