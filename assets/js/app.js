@@ -1,10 +1,3 @@
-/**
- * Bobcafe — menu application
- * ---------------------------------------------------------------
- * Loads /assets/menu.json dynamically and renders the entire menu.
- * No menu content is ever hardcoded — add items to menu.json only.
- * ---------------------------------------------------------------
- */
 (() => {
   "use strict";
 
@@ -17,9 +10,7 @@
     fallbackImage: "assets/images/fallback.svg",
     allChipLabel: "همه",
     searchDebounceMs: 220,
-    // Master display order for known categories. Categories not found
-    // here (e.g. a brand-new one added only in menu.json) are appended
-    // after these, in the order they first appear in the data.
+
     categoryOrder: [
       "اسپرسو بار",
       "شیرقهوه با نسبت شیر کم",
@@ -35,6 +26,7 @@
       "شیک",
       "اسموتی",
       "کیک",
+      "غذا",
     ],
   };
 
@@ -67,6 +59,7 @@
     { keywords: ["شیک"], icon: "shake" },
     { keywords: ["اسموتی"], icon: "smoothie" },
     { keywords: ["کیک"], icon: "cake" },
+    { keywords: ["غذا"], icon: "food" },
   ];
 
   const ICON_PATHS = {

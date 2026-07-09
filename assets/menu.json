@@ -432,5 +432,26 @@
     "price": 180000,
     "category": "کیک",
     "image": "cookie-chocolate-mars.jpg"
+  },
+  {
+    "name": "فرنچ فرایز",
+    "description": "سیب زمینی سرخ شده با نمک و ادویه",
+    "price": 330000,
+    "category": "غذا",
+    "image": "french-fries.jpg"
+  },
+    {
+    "name": "کلاسیک برگر",
+    "description": "برگر کلاسیک با گوشت تازه و پنیر چدار",
+    "price": 690000,
+    "category": "غذا",
+    "image": "classic-burger.jpg"
+  },
+    {
+    "name": "پاستا آلفردو",
+    "description": "پاستا با سس آلفردو و مرغ گریل شده",
+    "price": 710000,
+    "category": "غذا",
+    "image": "pasta-alfredo.jpg"
   }
 ]
