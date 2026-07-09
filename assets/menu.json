@@ -106,7 +106,7 @@
   },
   {
     "name": "هات چاکلت",
-    "description": "کاکائوی بلژیکی با شیر پرچرب و کرم شکلات",
+    "description": "کاکائوی بلژیکی با شیر فوم دار",
     "price": 250000,
     "category": "نوشیدنی های گرم",
     "image": "hot-cocoa.jpg"
@@ -127,14 +127,14 @@
   },
   {
     "name": "شیر نسکافه",
-    "description": "شیر بخارداده با نسکافه و کمی شکر، طعمی ملایم و شیرین",
+    "description": "شیر فوم دار با نسکافه و کمی شکر، طعمی ملایم و شیرین",
     "price": 210000,
     "category": "نوشیدنی های گرم",
     "image": "nescafe.jpg"
   },
   {
     "name": "شیر عسل",
-    "description": "شیر بخارداده با عسل طبیعی و کمی دارچین، طعمی شیرین و آرامش‌بخش",
+    "description": "شیر فوم دار با عسل طبیعی و کمی دارچین، طعمی شیرین و آرامش‌بخش",
     "price": 230000,
     "category": "نوشیدنی های گرم",
     "image": "hot-honey-milk.jpg"
@@ -169,7 +169,7 @@
   },
   {
     "name": "افزودنی",
-    "description": "سیروپ وانیل - آیریش - دارچین - فندق - نارگیل - کارامل",
+    "description": "سیروپ وانیل، آیریش، دارچین، فندق، نارگیل و کارامل",
     "price": 35000,
     "category": "ماچا بار",
     "image": "eddible-syrups.jpg"
@@ -211,21 +211,21 @@
   },
   {
     "name": "آیس لاته",
-    "description": "اسپرسو سرد شده با شیر یخ و شربت کارامل",
+    "description": "اسپرسو و شیر فوم دار، به همراه یخ",
     "price": 280000,
     "category": "ایس کافی بار",
     "image": "cold-iced-latte.jpg"
   },
   {
     "name": "آیس آمریکانو",
-    "description": "اسپرسوی سرد رقیق‌شده با آب و یخ فراوان",
+    "description": "اسپرسو به همراه 120 میل آب داغ و یخ" ,
     "price": 240000,
     "category": "ایس کافی بار",
     "image": "ice-coffee-americano.jpg"
   },
   {
     "name": "آیس موکا",
-    "description": "اسپرسوی سرد با شکلات تلخ و شیر یخ، طعمی غنی و شکلاتی",
+    "description": "اسپرسو، سس شکلات، شیر و یخ",
     "price": 320000,
     "category": "ایس کافی بار",
     "image": "ice-coffee-mocha.jpg"
@@ -239,42 +239,42 @@
   },
   {
     "name": "فراپاچینو",
-    "description": "قهوه سرد با یخ، شیر و شربت کارامل، طعمی شیرین و خنک",
+    "description": "اسپرسو، خامه، شیر، یخ و سیروپ آیریش",
     "price": 320000,
     "category": "ایس کافی بار",
     "image": "ice-coffee-ferapatchino.jpg"
   },
   {
     "name": "افزودنی",
-    "description": "سیروپ وانیل - آیریش - دارچین - فندق - نارگیل - کارامل",
+    "description": "سیروپ وانیل، آیریش، دارچین، فندق، نارگیل و کارامل",
     "price": 35000,
     "category": "ایس کافی بار",
     "image": "eddible-syrups.jpg"
   },
   {
     "name": "موهیتو",
-    "description": "لیموی تازه، برگ نعنا و سودای گازدار، بدون الکل",
+    "description": "موهیتوی کلاسیک کوبایی",
     "price": 260000,
     "category": "کلاسیک ماکتیل",
     "image": "mocktail-classic-mojito.jpg"
   },
   {
     "name": "لیموناد",
-    "description": "آب‌لیمو تازه با شکر و یخ، طعمی خنک و ترش",
+    "description": "لیموناد کلاسیک کوبایی",
     "price": 230000,
     "category": "کلاسیک ماکتیل",
     "image": "mocktail-classic-lemonade.jpg"
   },
   {
     "name": "آیریش بیر",
-    "description": "Lorm Ipsom",
+    "description": "ماکتیل کلاسیک، یادآور طمع آبجوی ایرلندی",
     "price": 280000,
     "category": "کلاسیک ماکتیل",
     "image": "mocktail-classic-irish.jpg"
   },
   {
     "name": "آبجو",
-    "description": "Lorm Ipsom",
+    "description": "آبجوی کلاسیک دست ساز، بدون الکل",
     "price": 300000,
     "category": "کلاسیک ماکتیل",
     "image": "mocktail-classic-beer.jpg"
@@ -316,56 +316,56 @@
   },
   {
     "name": "شیک شکلات",
-    "description": "بستنی وانیلی و شکلات",
+    "description": "بستنی وانیلی، شیر و شکلات",
     "price": 310000,
     "category": "شیک",
     "image": "shake-chocolate.jpg"
   },
   {
     "name": "شیک نوتلا",
-    "description": "بستنی وانیلی و نوتلا",
+    "description": "بستنی وانیلی، شیر و نوتلا",
     "price": 310000,
     "category": "شیک",
     "image": "shake-nutella.jpg"
   },
   {
     "name": "شیک نوتلا توت‌فرنگی",
-    "description": "بستنی وانیلی، نوتلا و توت‌فرنگی تازه",
+    "description": "بستنی وانیلی، شیر، نوتلا و توت‌فرنگی تازه",
     "price": 330000,
     "category": "شیک",
     "image": "shake-starwberry-nutella.jpg"
   },
   {
     "name": "شیک توت‌فرنگی",
-    "description": "بستنی وانیلی و توت‌فرنگی تازه",
+    "description": "بستنی وانیلی، شیر و توت‌فرنگی تازه",
     "price": 310000,
     "category": "شیک",
     "image": "shake-strawberry.jpg"
   },
   {
     "name": "شیک پینات",
-    "description": "بستنی وانیلی و کره بادام زمینی",
+    "description": "بستنی وانیلی، شیر و کره بادام زمینی",
     "price": 310000,
     "category": "شیک",
     "image": "shake-peanut-butter.jpg"
   },
   {
     "name": "شیک اسپرسو",
-    "description": "بستنی وانیلی و اسپرسو تازه",
+    "description": "بستنی وانیلی، شیر و اسپرسو",
     "price": 330000,
     "category": "شیک",
     "image": "shake-espresso.jpg"
   },
   {
     "name": "شیک اورئو",
-    "description": "بستنی وانیلی و بیسکویت اورئو",
+    "description": "بستنی وانیلی، شیر و بیسکویت اورئو",
     "price": 330000,
     "category": "شیک",
     "image": "shake-oreo.jpg"
   },
   {
     "name": "شیک لوتوس",
-    "description": "بستنی وانیلی و کره لوتوس ",
+    "description": "بستنی وانیلی، شیر و کره لوتوس ",
     "price": 330000,
     "category": "شیک",
     "image": "shake-letus.jpg"
@@ -407,7 +407,7 @@
   },
   {
     "name": "کیک عسل",
-    "description": "کیک لایه ای با با شیرینی عسل",
+    "description": "کیک لایه ای با طعم شیرین عسل",
     "price": 290000,
     "category": "کیک",
     "image": "cake-honey.jpg"
