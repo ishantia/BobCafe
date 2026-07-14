@@ -453,5 +453,12 @@
     "price": 710000,
     "category": "غذا",
     "image": "pasta-alfredo.webp"
+  },
+  {
+    "name": "placeholder",
+    "description": "Lorm Ipsom",
+    "price": 100000,
+    "category": "صبحانه",
+    "image": "idk.webp"
   }
 ]

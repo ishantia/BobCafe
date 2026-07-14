@@ -27,6 +27,7 @@
       "اسموتی",
       "کیک",
       "غذا",
+      "صبحانه",
     ],
   };
 
@@ -60,6 +61,7 @@
     { keywords: ["اسموتی"], icon: "smoothie" },
     { keywords: ["کیک"], icon: "cake" },
     { keywords: ["غذا"], icon: "food" },
+    { keywords: ["صبحانه"], icon: "breakfast" },
   ];
 
   const ICON_PATHS = {
