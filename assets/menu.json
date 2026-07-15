@@ -462,6 +462,13 @@
     "image": "chicken-ciabatta.webp"
   },
   {
+    "name": "چاباتای بیکن",
+    "description": "بیکن گریل‌شده همراه با سبزیجات تازه و سس مخصوص، سرو شده در نان چاباتای ایتالیایی ترد.",
+    "price": 640000,
+    "category": "غذا",
+    "image": "bacon-ciabatta.webp"
+  },
+  {
     "name": "placeholder",
     "description": "Lorm Ipsom",
     "price": 100000,
