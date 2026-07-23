@@ -399,11 +399,11 @@
     "image": "smoothie-season.webp"
   },
   {
-    "name": "کیک چاکلت براونی",
-    "description": "کیک براونی داغ و یک اسکوپ بستنی",
-    "price": 298000,
+    "name": "کیک شکلات",
+    "description": "براونی / بلک فارست / خامه شکلات",
+    "price": 310000,
     "category": "کیک",
-    "image": "cake-chocolate-brownie.webp"
+    "image": "chocolate-cake.webp"
   },
   {
     "name": "کیک عسل",
@@ -413,25 +413,25 @@
     "image": "cake-honey.webp"
   },
   {
-    "name": "چیزکیک نیویورکی",
-    "description": "چیزکیک کلاسیک با پایه بیسکوییتی",
-    "price": 268000,
+    "name": "چیزکیک",
+    "description": "لوتوس / شاتوت / اورئو / سن سباستین",
+    "price": 290000,
     "category": "کیک",
     "image": "chese-cake-newyork.webp"
   },
   {
-    "name": "کوکی کره شکلات",
-    "description": "کوکی کره ای با تکه های شکلات و گردو",
-    "price": 180000,
+    "name": "کوکی",
+    "description": "کوکی با فیلینگ نوتلا / کره گردو شکلات / مارس",
+    "price": 240000,
     "category": "کیک",
     "image": "cookie-chocolate-butter.webp"
   },
   {
-    "name": "کوکی شکلات مارس",
-    "description": "کوکی شکلاتی با تکه های شکلات و کارامل",
-    "price": 180000,
+    "name": "تیرامیسو",
+    "description": "کلاسیک / شاتوت",
+    "price": 340000,
     "category": "کیک",
-    "image": "cookie-chocolate-mars.webp"
+    "image": "tiramisu.webp"
   },
   {
     "name": "فرنچ فرایز",
@@ -469,10 +469,31 @@
     "image": "bacon-ciabatta.webp"
   },
   {
-    "name": "placeholder",
-    "description": "Lorm Ipsom",
-    "price": 100000,
+    "name": "پنکیک",
+    "description": "فیلینگ شکلات و موز/کره بادام زمینی و عسل و موز",
+    "price": 450000,
     "category": "صبحانه",
-    "image": "idk.webp"
+    "image": "pancake.webp"
+  },
+  {
+    "name": "فرنچ تست",
+    "description": "فیلینگ خامه و مربای توت فرنگی",
+    "price": 430000,
+    "category": "صبحانه",
+    "image": "franch-toast.webp"
+  },
+  {
+    "name": "چاباتای املت",
+    "description": "املت با دو عدد تخم مرغ و نان چاباتا",
+    "price": 380000,
+    "category": "صبحانه",
+    "image": "omlet-ciabatta.webp"
+  },
+  {
+    "name": "تست پروتئین",
+    "description": "توصیحات نان تست پروتوئینی بیکن تخم مرغ",
+    "price": 450000,
+    "category": "صبحانه",
+    "image": "protein-toast.webp"
   }
 ]
